@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>Personagens</title></head>
+<body>
+<h1>Personagens de I.A.</h1>
+<div th:if="${message}" th:text="${message}"></div>
+<a th:href="@{/character/form}">Novo</a>
+<table>
+<tr><th>Nome</th><th>Arquétipo</th><th>Alinhamento</th><th>Inteligência</th><th>Força</th><th>Ações</th></tr>
+<tr th:each="c : ${characters}">
+<td th:text="${c.name}"></td><td th:text="${c.archetype}"></td><td th:text="${c.alignment}"></td>
+<td th:text="${c.intelligence}"></td><td th:text="${c.strength}"></td>
+<td>
+<a th:href="@{/character/form(id=${c.id})}">Editar</a>
+<form th:action="@{|/character/${c.id}/delete|}" method="post"><button>Excluir</button></form>
+</td>
+</tr>
+</table>
+</body></html>

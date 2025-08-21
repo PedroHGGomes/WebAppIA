@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>Cadastro Personagem</title></head>
+<body>
+<h1>Cadastro de Personagem</h1>
+<form th:action="@{/character/form}" th:object="${characterForm}" method="post">
+<input type="hidden" th:field="*{id}"/>
+<label>Nome: <input th:field="*{name}"/></label><br/>
+<label>Arquétipo: <input th:field="*{archetype}"/></label><br/>
+<label>Alinhamento: <input th:field="*{alignment}"/></label><br/>
+<label>História: <textarea th:field="*{backstory}"></textarea></label><br/>
+<label>Inteligência: <input type="number" th:field="*{intelligence}"/></label><br/>
+<label>Força: <input type="number" th:field="*{strength}"/></label><br/>
+<label>Avatar: <input th:field="*{avatarUrl}"/></label><br/>
+<button>Salvar</button>
+</form>
+</body></html>
